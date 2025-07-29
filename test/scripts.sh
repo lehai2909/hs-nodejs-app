@@ -28,6 +28,7 @@ USE app;
 CREATE TABLE users (email varchar(100), question varchar(500));
 
 INSERT INTO users (email, question)
+
 VALUES ('lehai2909@gmail.com', 'My very first question');
 
 select * from users;
