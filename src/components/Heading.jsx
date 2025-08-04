@@ -1,13 +1,20 @@
 import "./Heading.css";
 import {useOktaAuth} from "@okta/okta-react";
+import {useState} from "react";
 
 function Heading() {
+  const [accessToken, setAccessToken] = useState("");
   const {authState, oktaAuth} = useOktaAuth();
   const signin = async () => {
     await oktaAuth.signInWithRedirect();
-    console.log(authState.idToken.claims);
+    setAccessToken(authState.accessToken.accessToken);
   };
-  const signout = async () => await oktaAuth.signOut();
+  const signout = async () => {
+    await oktaAuth.signOut();
+  };
+  const checkToken = async () => {
+    console.log("Access Token: ", accessToken);
+  };
   function handleClick(props) {
     alert(
       "Please Sign-up first. Click the user icon in the right up corner to sign-up. If you already signed-up, use Test button below to login and see cute pets ^^"
@@ -62,6 +69,12 @@ function Heading() {
           )}
         </div>
       </nav>
+
+      <div className="col-md-3 text-end">
+        {authState?.isAuthenticated && (
+          <p>{authState.accessToken.accessToken}</p>
+        )}
+      </div>
 
       <div className="px-4 py-5 my-5 text-center">
         <img

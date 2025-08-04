@@ -1,12 +1,11 @@
 import {useState} from "react";
 import "./index.css";
-import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
-import { LoginCallback, Security } from '@okta/okta-react';
-import Home from './Home';
-import Profile from "./Profile";
-import { BrowserRouter, Routes, Route } from "react-router";
-import HomePage from "./components/HomePage";
+import {OktaAuth} from "@okta/okta-auth-js";
+import {LoginCallback, Security} from "@okta/okta-react";
 
+import Profile from "./components/Profile";
+import {BrowserRouter, Routes, Route} from "react-router";
+import HomePage from "./components/HomePage";
 
 const oktaAuth = new OktaAuth({
   issuer: "https://dev-39748740.okta.com/oauth2/default",
@@ -17,7 +16,7 @@ const oktaAuth = new OktaAuth({
 
 function App() {
   const restoreOriginalUri = (_oktaAuth, originalUri) => {
-    window.location.replace(originalUri || '/');
+    window.location.replace(originalUri || "/");
   };
 
   return (
@@ -36,4 +35,3 @@ function App() {
 }
 
 export default App;
-
