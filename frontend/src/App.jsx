@@ -8,8 +8,8 @@ import {BrowserRouter, Routes, Route} from "react-router";
 import HomePage from "./components/HomePage";
 
 const oktaAuth = new OktaAuth({
-  issuer: "https://dev-39748740.okta.com/oauth2/default",
-  clientId: "0oaon19v96y6UoIp05d7",
+  issuer: "https://integrator-4897564.okta.com/oauth2/default",
+  clientId: "0oau36ni0kqUwfG8v697",
   redirectUri: window.location.origin + "/login/callback",
   scopes: ["openid", "profile", "email", "offline_access"],
 });
