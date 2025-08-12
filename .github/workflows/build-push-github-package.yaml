@@ -37,6 +37,8 @@ on:
       - main
 jobs:
   build:
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -55,5 +57,5 @@ jobs:
           ls -la ~
           ls -la
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
